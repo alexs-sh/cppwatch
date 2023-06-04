@@ -1,6 +1,6 @@
 # About
 
-[![Build Status](https://gitlab.com/alexssh/cppwatch/badges/master/pipeline.svg)](https://gitlab.com/alexssh/modbus-tools/-/commits/master)
+[![Build status](https://gitlab.com/alexssh/cppwatch/badges/master/pipeline.svg)](https://gitlab.com/alexssh/cppwatch/-/commits/master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 cppwatch watches for changes in C/++ source files and runs build/test commands,
