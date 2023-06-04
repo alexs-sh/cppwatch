@@ -19,7 +19,6 @@ Run:
 
 ```
 cppwatch /tmp/ninja
-
 ```
 
 After detecting changes in source files, cppwatch executes build / test commands
