@@ -1,0 +1,15 @@
+[package]
+name = "cppwatch"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+watchexec="2.3.0"
+watchexec-signals="1.0"
+watchexec-events="1.0"
+tokio="1.28"
+notify-rust="4.8"
+clap={version = "4.3", features = ["derive"] }
+colored ="2.0"

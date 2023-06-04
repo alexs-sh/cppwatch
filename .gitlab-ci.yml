@@ -1,0 +1,49 @@
+stages:
+  - style
+  - build
+  - analyze
+
+format:
+  image: alexshcdr/rustc-x86_64-debian11
+  stage: style
+  script:
+    - cargo fmt --check
+  tags:
+    - docker
+
+x86_64-debian:11:
+  image: alexshcdr/rustc-x86_64-debian11
+  stage: build
+  script:
+    - cargo build --release
+    - cargo test --release
+  artifacts:
+    name: ${CI_JOB_NAME}
+    expire_in: 1 days
+    paths:
+    - target/release/cppwatch
+  tags:
+    - docker
+
+clippy:
+  image: alexshcdr/rustc-x86_64-debian11
+  stage: analyze
+  needs: [format]
+  script:
+    - cargo clippy
+  tags:
+    - docker
+
+miri:
+  image: alexshcdr/rustc-x86_64-debian11
+  stage: analyze
+  needs: [format]
+  script:
+    - rustup default nightly
+    - rustup component add miri
+    - rustup update
+    - cargo miri test
+  tags:
+    - docker
+
+
